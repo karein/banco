@@ -5,10 +5,11 @@ export default class Form extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <TextInput
+        <TextInput 
           style={styles.inputBox}
+          keyboardType="number-pad"
           underlineColorAndroid="rgba(0,0,0,0)"
-          placeholder="E-mail"
+          placeholder="número da conta"
           placeholderTextColor="#ffffff"
         />
 
@@ -20,7 +21,8 @@ export default class Form extends React.Component {
           placeholderTextColor="#ffffff"
         />
         
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button}
+                          onPress={()=>this.props.navigation.navigate('Home')}>
           <Text style={styles.buttonText}>{this.props.name}</Text>
         </TouchableOpacity>
       </View>
@@ -38,7 +40,7 @@ const styles = StyleSheet.create({
     width: 300,
     height: 50,
     backgroundColor: 'rgba(255, 255, 255, 0.3)',
-    borderRadius: 25,
+    borderRadius: 10,
     paddingHorizontal: 16,
     fontSize: 16,
     color: '#ffffff',
@@ -53,7 +55,7 @@ const styles = StyleSheet.create({
   button:{
     backgroundColor: '#1c313a',
     width: 300,
-    borderRadius: 25,
+    borderRadius: 10,
     marginVertical: 10,
     paddingVertical:12,
   },

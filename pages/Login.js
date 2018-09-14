@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, StatusBar } from 'react-native';
+import { Text, View, StyleSheet, StatusBar, Button, TouchableOpacity } from 'react-native';
 
 import Logo from '../components/Logo';
 import Form from '../components/Form';
@@ -9,10 +9,13 @@ export default class Login extends React.Component {
     return (
       <View style={styles.container}>
         <Logo/>
-        <Form name="login"/>
+        <Form name="login"/> 
         <View style={styles.SingupTextview}>
-          <Text style={styles.singupText}>Don't have an accont yet?</Text>
-          <Text style={styles.singup}> SingUp</Text>
+          <Text style={styles.singupText}>Dont have an accont yet?</Text>
+          <TouchableOpacity 
+            onPress = {() => this.props.navigation.navigate ('Cadastro')}>
+            <Text style={styles.singup}>SingUp</Text>
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -40,8 +43,9 @@ const styles = StyleSheet.create({
   singup:{
     color:'#ffffff',
     fontSize:16,
-    fontWeight:'455'
-    //500
+    fontWeight:'455',
   },
 });
-
+/*<Button title="dooo" 
+         onPress={() => this.props.navigation.navigate('Cadastro')}
+        />*/

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, StatusBar } from 'react-native';
+import { Text, View, StyleSheet, StatusBar, TouchableOpacity } from 'react-native';
 
 import Logo from '../components/Logo';
 import Form from '../components/Form';
@@ -12,7 +12,10 @@ export default class Singup extends React.Component {
         <Form name="singup" />
         <View style={styles.SingupTextview}>
           <Text style={styles.singupText}>Aready have an accont?</Text>
-          <Text style={styles.singup}> Sing in</Text>
+          <TouchableOpacity>
+             onPress={() => this.props.navigation.navigate('Login')}>
+             <Text style={styles.singup}> Sing in</Text>
+          </TouchableOpacity>
         </View>
       </View>
     );

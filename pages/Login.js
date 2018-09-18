@@ -1,10 +1,15 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, StatusBar, Button, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, StatusBar, TouchableOpacity } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 import Logo from '../components/Logo';
 import Form from '../components/Form';
 
 export default class Login extends React.Component {
+  singup(){
+    Actions.singup();
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -12,8 +17,7 @@ export default class Login extends React.Component {
         <Form name="login"/> 
         <View style={styles.SingupTextview}>
           <Text style={styles.singupText}>Dont have an accont yet?</Text>
-          <TouchableOpacity 
-            onPress = {() => this.props.navigation.navigate ('Cadastro')}>
+          <TouchableOpacity onPress={this.singup}>
             <Text style={styles.singup}>SingUp</Text>
           </TouchableOpacity>
         </View>

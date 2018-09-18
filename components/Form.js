@@ -1,4 +1,4 @@
-import * as React from 'react';
+﻿import * as React from 'react';
 import { Text, View, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
 
 export default class Form extends React.Component {
@@ -11,7 +11,9 @@ export default class Form extends React.Component {
           underlineColorAndroid="rgba(0,0,0,0)"
           placeholder="número da conta"
           placeholderTextColor="#ffffff"
-        />
+          selectionColor="#fff"
+          onSubmitEditing={()=>this.password.focus()}
+        /> 
 
         <TextInput
           style={styles.inputBox}
@@ -19,6 +21,8 @@ export default class Form extends React.Component {
           placeholder="password"
           secureTextEntry={true}
           placeholderTextColor="#ffffff"
+          selectionColor="#fff"
+          ref={(input) => this.password = input}
         />
         
         <TouchableOpacity style={styles.button}

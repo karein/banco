@@ -1,19 +1,24 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, StatusBar, TouchableOpacity } from 'react-native';
+import { Actions } from 'react-native-router-flux';
+
 
 import Logo from '../components/Logo';
-import Form from '../components/Form';
+import FormCad from '../components/FormCad';
 
 export default class Singup extends React.Component {
+  goBack(){
+    Actions.pop();
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <Logo />
-        <Form name="singup" />
+        <FormCad name="singup" />
         <View style={styles.SingupTextview}>
           <Text style={styles.singupText}>Aready have an accont?</Text>
-          <TouchableOpacity>
-             onPress={() => this.props.navigation.navigate('Login')}>
+          <TouchableOpacity onPress={this.goBack}>
              <Text style={styles.singup}> Sing in</Text>
           </TouchableOpacity>
         </View>
